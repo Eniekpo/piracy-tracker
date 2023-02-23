@@ -8,23 +8,23 @@
       <table class="table border border-2">
         <thead>
             <tr>
-                <th scope="col">Software Name</th>
-                <th scope="col">uniq_Opnd</th>
-                <th scope="col">total_Op</th>
-                <th scope="col">total_Opnd</th>
-                <th scope="col">Branch Count</th>
-                <th scope="col">Status Report</th>
+                <th class="border" scope="col">Software Name</th>
+                <th class="border" scope="col">uniq_Opnd</th>
+                <th class="border" scope="col">total_Op</th>
+                <th class="border" scope="col">total_Opnd</th>
+                <th class="border" scope="col">Branch Count</th>
+                <th class="border" scope="col">Status Report</th>
             </tr>
         </thead>
         <tbody>
           {% for data in predicted_soft %}
             <tr>
-                <th scope="row">{{data.software_name}}</th>
-                <td>{{data.uniq_Opnd}}</td>
-                <td>{{data.total_Op}}</td>
-                <td>{{data.total_Opnd}}</td>
-                <td>{{data.branchCount}}</td>
-                <td>{{data.predictions}}</td>
+                <th class="border" scope="row">{{data.software_name}}</th>
+                <td class="border">{{data.uniq_Opnd}}</td>
+                <td class="border">{{data.total_Op}}</td>
+                <td class="border">{{data.total_Opnd}}</td>
+                <td class="border">{{data.branchCount}}</td>
+                <td class="border">{{data.predictions}}</td>
             </tr>
             {% endfor %}
         </tbody>

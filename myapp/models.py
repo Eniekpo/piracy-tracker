@@ -23,16 +23,18 @@ class Data(models.Model):
         validators=[MinValueValidator(-0.8), MaxValueValidator(2.5)], null=True)
     predictions = models.CharField(
         max_length=50, null=True, choices=PREDICTIONS, default='Status')
-    date = models.DateField(auto_now_add=True)
+    tested_at = models.DateField(auto_now_add=True)
 
-    def save(self, *args, **kwargs):
-        ml_model = joblib.load('ml_model/software_piracy_tracker.joblib')
-        self.predictions = ml_model.predict(
-            [[self.uniq_Opnd, self.total_Op, self.total_Opnd, self.branchCount]])
-        return super().save(*args, **kwargs)
+
+    # FUNCTION TO MAKE PREDICTIONS 
+    # def save(self, *args, **kwargs):
+    #     ml_model = joblib.load('ml_model/software_piracy_tracker.joblib')
+    #     self.predictions = ml_model.predict(
+    #         [self.uniq_Opnd, self.total_Op, self.total_Opnd, self.branchCount])
+    #     return super().save(*args, **kwargs)
 
     class Meta:
-        ordering = ['-date']
+        ordering = ['-tested_at']
 
     def __str__(self):
         return self.software_name

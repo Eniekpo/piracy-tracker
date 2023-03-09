@@ -7,26 +7,26 @@
     <div class="col-md-8 offset-md-2">
       <table class="table border border-2">
         <thead>
-            <tr>
-                <th class="border" scope="col">Software Name</th>
-                <th class="border" scope="col">uniq_Opnd</th>
-                <th class="border" scope="col">total_Op</th>
-                <th class="border" scope="col">total_Opnd</th>
-                <th class="border" scope="col">Branch Count</th>
-                <th class="border" scope="col">Status Report</th>
-            </tr>
+          <tr>
+            <th class="border" scope="col">Software Name</th>
+            <th class="border" scope="col">uniq_Opnd</th>
+            <th class="border" scope="col">total_Op</th>
+            <th class="border" scope="col">total_Opnd</th>
+            <th class="border" scope="col">Branch Count</th>
+            <th class="border" scope="col">Status Report</th>
+          </tr>
         </thead>
         <tbody>
           {% for data in predicted_soft %}
-            <tr>
-                <th class="border" scope="row">{{data.software_name}}</th>
-                <td class="border">{{data.uniq_Opnd}}</td>
-                <td class="border">{{data.total_Op}}</td>
-                <td class="border">{{data.total_Opnd}}</td>
-                <td class="border">{{data.branchCount}}</td>
-                <td class="border">{{data.predictions}}</td>
-            </tr>
-            {% endfor %}
+          <tr>
+            <th class="border" scope="row">{{data.software_name}}</th>
+            <td class="border">{{data.uniq_Opnd}}</td>
+            <td class="border">{{data.total_Op}}</td>
+            <td class="border">{{data.total_Opnd}}</td>
+            <td class="border">{{data.branchCount}}</td>
+            <td class="border">{{data.predictions}}</td>
+          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>

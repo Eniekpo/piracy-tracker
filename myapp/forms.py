@@ -42,8 +42,9 @@ class DataForm(forms.ModelForm):
 
     class Meta:
         model = Data
-        # fields = ['software_name', 'uniq_Opnd', 'total_Op', 'total_Opnd', 'branchCount']
-        exclude = ("date", "predictions")
+        fields = ['software_name', 'uniq_Opnd', 'total_Op',
+                  'total_Opnd', 'branchCount', "predictions"]
+        # exclude = ("tested_at", "predictions")
 
     # SUPPER FUNCTION
     def __init__(self, *args, **kwargs):

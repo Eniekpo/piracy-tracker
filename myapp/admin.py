@@ -8,8 +8,8 @@ from django.utils.html import format_html
 
 class DataAdmin(admin.ModelAdmin):
     list_filter = ['predictions']
-    list_display = ['software_name', 'uniq_Opnd', 'total_Op',
-                    'total_Opnd', 'branchCount', 'status', '_']
+    list_display = ["software_name", "uniq_Opnd", "total_Op",
+                    "total_Opnd", "branchCount", "status", "_"]
     list_per_page = 10
 
     # Function to change the icon

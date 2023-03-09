@@ -44,3 +44,7 @@ class DataForm(forms.ModelForm):
         model = Data
         # fields = ['software_name', 'uniq_Opnd', 'total_Op', 'total_Opnd', 'branchCount']
         exclude = ("date", "predictions")
+
+    # SUPPER FUNCTION
+    def __init__(self, *args, **kwargs):
+        super(DataForm, self).__init__(*args, **kwargs)

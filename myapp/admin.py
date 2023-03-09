@@ -22,7 +22,7 @@ class DataAdmin(admin.ModelAdmin):
             return False
     _.boolean = True
 
-    # Function to color the text
+    # # Function to color the text
 
     def status(self, obj):
         if obj.predictions == 'unpirated':

@@ -4,6 +4,13 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
+PREDICTIONS = (
+    ('bugs', 'bugs'),
+    ('unpirated', 'unpirated'),
+    ('pirated', 'pirated')
+)
+
+
 class Data(models.Model):
     software_name = models.CharField(max_length=50, null=True)
     uniq_Opnd = models.FloatField(
@@ -15,7 +22,7 @@ class Data(models.Model):
     branchCount = models.FloatField(
         validators=[MinValueValidator(-0.8), MaxValueValidator(2.5)], null=True)
     predictions = models.CharField(
-        max_length=100, blank=True)
+        max_length=50, null=True, choices=PREDICTIONS, default='Status')
     date = models.DateField(auto_now_add=True)
 
     def save(self, *args, **kwargs):

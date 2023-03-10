@@ -12,12 +12,12 @@ class Uppercase(forms.CharField):
 
 class DataForm(forms.ModelForm):
     # VALIDATIONS
-    software_name = Uppercase(
-        label='Software Name', min_length=4, max_length=50,
+    software_id = Uppercase(
+        label='Software Id', min_length=4, max_length=50,
         validators=[RegexValidator(r'^[a-zA-ZA-y\s]*$',
                                    message='Only letter is allowed !')],
         widget=forms.TextInput(
-            attrs={'placeholder': 'Enter Your Software Name'})
+            attrs={'placeholder': 'Software Id'})
     )
 
     uniq_Opnd = forms.CharField(
@@ -35,16 +35,25 @@ class DataForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 1.0 Max: 6.9'})
     )
 
-    branchCount = forms.CharField(
-        label='Branch Count', min_length=2, max_length=4,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: -0.8 Max: 2.5'})
+    hashvalue = forms.CharField(
+        label='Hash Value',
+        widget=forms.TextInput(attrs={'placeholder': 'hash'})
     )
 
     class Meta:
         model = Data
-        fields = ['software_name', 'uniq_Opnd', 'total_Op',
-                  'total_Opnd', 'branchCount', "predictions"]
+        fields = ['software_id', 'uniq_Opnd', 'total_Op',
+                  'total_Opnd', 'license_key', "hashvalue", "predictions"]
         # exclude = ("tested_at", "predictions")
+
+        widgets = {
+            'license_key': forms.TextInput(
+                attrs={'style': 'font-size:16px',
+                       'placeholder': 'XXXXX-XXXXX-XXXXX-XXXXX',
+                       'data-mask': '00000 - 00000 - 00000 - 00000'
+                       }
+            ),
+        }
 
     # SUPPER FUNCTION
     def __init__(self, *args, **kwargs):

@@ -26,7 +26,7 @@ class DataForm(forms.ModelForm):
     )
 
     total_Op = forms.CharField(
-        label='Total_Op', min_length=2, max_length=5,
+        label='Branch Count', min_length=2, max_length=5,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 2.0 Max: 4.0'})
     )
 

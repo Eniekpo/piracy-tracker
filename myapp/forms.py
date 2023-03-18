@@ -3,9 +3,12 @@ from . models import Data, Predictions
 from django.core.validators import RegexValidator
 
 # EVERY LETTER TO UPPER CASE
+
+
 class Uppercase(forms.CharField):
     def to_python(self, value):
         return value.upper()
+
 
 class DataForm(forms.ModelForm):
     # VALIDATIONS
@@ -44,33 +47,33 @@ class DataForm(forms.ModelForm):
             ),
         }
 
+
 class PredictionsForm(forms.ModelForm):
-    software_name = Uppercase(
+    software_name = forms.CharField(
         label='Software Name', min_length=4, max_length=50,
-            # required=False,
-        validators=[RegexValidator(r'^[a-zA-ZA-y\s]*$', message='Only letter is allowed !')],
         widget=forms.TextInput(
-        attrs={'placeholder': 'Software Name'})
-        )
+            attrs={'placeholder': 'Software Name'})
+    )
 
     branchCount = forms.CharField(
         label='Branch Key', min_length=2, max_length=5,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
-        )
+    )
 
     total_Op = forms.CharField(
         label='Hash Value', min_length=2, max_length=5,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
-        )
+    )
 
     total_Opnd = forms.CharField(
         label='License Key', min_length=2, max_length=5,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
-        )
+    )
 
     class Meta:
         model = Predictions
-        fields = ['software_name', 'total_Op', 'total_Opnd', 'branchCount', "Predictions"]
+        fields = ['software_name', 'total_Op',
+                  'total_Opnd', 'branchCount', "Predictions"]
 
     # SUPPER FUNCTION
     # def __init__(self, *args, **kwargs):

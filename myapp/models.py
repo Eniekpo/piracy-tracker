@@ -53,9 +53,9 @@ class Predictions(models.Model):
     # FUNCTION TO MAKE PREDICTIONS
     def save(self, *args, **kwargs):
         ml_model = joblib.load('ml_model/software_piracy_tracker.joblib')
-        self.Predictions = ml_model.predict([self.software_name, self.branchCount, self.total_Op, self.total_Opnd])
+        self.Predictions = ml_model.predict(
+            [self.software_name, self.branchCount, self.total_Op, self.total_Opnd])
         return super().save(*args, **kwargs)
-
 
     class Meta:
         ordering = ['-Tested_at']

@@ -8,15 +8,14 @@ from django.utils.html import format_html
 
 class DataAdmin(admin.ModelAdmin):
     list_filter = ['predictions']
-    list_display = ["software_id", "uniq_Opnd", "total_Op",
-                    "total_Opnd", "license_key", "hashvalue", "status", "_"]
+    list_display = ["software_id", "license_key", "hashvalue", "branchCount", "status", "_"]
     list_per_page = 10
 
     # Function to change the icon
     def _(self, obj):
-        if obj.predictions == 'unpirated':
+        if obj.predictions == 'Genuine':
             return True
-        elif obj.predictions == 'bugs':
+        elif obj.predictions == 'Bugs':
             return None
         else:
             return False
@@ -25,9 +24,9 @@ class DataAdmin(admin.ModelAdmin):
     # # Function to color the text
 
     def status(self, obj):
-        if obj.predictions == 'unpirated':
+        if obj.predictions == 'Genuine':
             color = '#28a745'
-        elif obj.predictions == 'bugs':
+        elif obj.predictions == 'Bugs':
             color = '#fea95e'
         else:
             color = 'red'

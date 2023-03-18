@@ -9,8 +9,10 @@ urlpatterns = [
     path('', views.frontend, name="frontend"),
     # Backend
     path('backend/', views.backend, name="backend"),
+
+    path('predictions/', views.predictions, name="predictions"),
     # Login/Logout
     path('login/', include('django.contrib.auth.urls')),
 
-   path('result/', views.result, name="result"),
+    path('result/', views.result, name="result"),
 ]

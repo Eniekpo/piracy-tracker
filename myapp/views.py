@@ -5,19 +5,31 @@ from django.contrib.auth.decorators import login_required
 # Prevent back button (destroy the last section)
 from django.views.decorators.cache import cache_control
 
-from . forms import DataForm
+from . forms import DataForm, PredictionsForm
 
-from . models import Data
+from . models import Data, Predictions
 
 # Frontend
-
-
 def frontend(request):
     return render(request, "frontend.html")
 
 
+def predictions(request):
+    if request.method == 'POST':
+        form = PredictionsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('result')
+    else:
+        form = PredictionsForm()
+    context = {
+        'form': form
+    }
+    return render(request, "predictions.html", context)
+
+
 def result(request):
-    predicted_soft = Data.objects.all() 
+    predicted_soft = Data.objects.all()
     context = {
         'predicted_soft': predicted_soft
     }
@@ -35,7 +47,7 @@ def backend(request):
             return redirect('result')
     else:
         form = DataForm()
-    context ={
+    context = {
         'form': form
     }
     return render(request, "backend.html", context)

@@ -30,12 +30,6 @@ class Data(models.Model):
         hashvalue = make_password(self.hashvalue, some_salt)
         super().save(*args, **kwargs)
 
-    # FUNCTION TO MAKE PREDICTIONS
-    # def save(self, *args, **kwargs):
-    #     ml_model = joblib.load('ml_model/software_piracy_tracker.joblib')
-    #     self.predictions = ml_model.predict([self.branchCount])
-    #     return super().save(*args, **kwargs)
-
     class Meta:
         ordering = ['-tested_at']
         verbose_name = 'data'
@@ -43,3 +37,30 @@ class Data(models.Model):
 
     def __str__(self):
         return self.software_id
+
+
+class Predictions(models.Model):
+    software_name = models.CharField(max_length=50, null=True)
+    total_Op = models.FloatField(
+        validators=[MinValueValidator(0.1), MaxValueValidator(2.5)], null=True)
+    total_Opnd = models.FloatField(
+        validators=[MinValueValidator(0.1), MaxValueValidator(2.5)], null=True)
+    branchCount = models.FloatField(
+        validators=[MinValueValidator(0.1), MaxValueValidator(2.5)], null=True)
+    Predictions = models.CharField(max_length=50, blank=True)
+    Tested_at = models.DateField(auto_now_add=True)
+
+    # FUNCTION TO MAKE PREDICTIONS
+    def save(self, *args, **kwargs):
+        ml_model = joblib.load('ml_model/software_piracy_tracker.joblib')
+        self.Predictions = ml_model.predict([self.software_name, self.branchCount, self.total_Op, self.total_Opnd])
+        return super().save(*args, **kwargs)
+
+
+    class Meta:
+        ordering = ['-Tested_at']
+        verbose_name = 'predictions'
+        verbose_name_plural = 'predictions'
+
+    def __str__(self):
+        return self.software_name

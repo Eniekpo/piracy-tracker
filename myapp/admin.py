@@ -8,9 +8,8 @@ from django.utils.html import format_html
 
 class PredictionsAdmin(admin.ModelAdmin):
     list_filter = ['Predictions']
-    list_display = ["software_name", "total_Op", "total_Opnd", "branchCount", "Predictions"]
+    list_display = ["software_name", "unique_Opnd", "total_Op", "total_Opnd", "branchCount", "Predictions"]
     list_per_page = 10
-
 
 admin.site.register(Predictions, PredictionsAdmin)
 

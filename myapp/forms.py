@@ -23,7 +23,7 @@ class DataForm(forms.ModelForm):
 
     branchCount = forms.CharField(
         label='Branch Count', min_length=2, max_length=5,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
+        widget=forms.TextInput(attrs={'placeholder': 'MIN: -0.8 Max: 2.5'})
     )
 
     hashvalue = forms.CharField(
@@ -70,9 +70,14 @@ class PredictionsForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
     )
 
+    unique_Opnd = forms.CharField(
+        label='Unique Opnd', min_length=2, max_length=5,
+        widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
+    )
+
     class Meta:
         model = Predictions
-        fields = ['software_name', 'total_Op',
+        fields = ['software_name','unique_Opnd', 'total_Op',
                   'total_Opnd', 'branchCount', "Predictions"]
 
     # SUPPER FUNCTION

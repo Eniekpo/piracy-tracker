@@ -10,8 +10,18 @@ from . forms import DataForm, PredictionsForm
 from . models import Data, Predictions
 
 # Frontend
+
+
 def frontend(request):
     return render(request, "frontend.html")
+
+
+def output(request):
+    pred_soft = Predictions.objects.all()
+    context = {
+        'pred_soft': pred_soft
+    }
+    return render(request, "output.html", context)
 
 
 def predictions(request):
@@ -19,7 +29,7 @@ def predictions(request):
         form = PredictionsForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('result')
+            return redirect('output')
     else:
         form = PredictionsForm()
     context = {

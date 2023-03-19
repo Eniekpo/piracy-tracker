@@ -11,6 +11,7 @@ urlpatterns = [
     path('backend/', views.backend, name="backend"),
 
     path('predictions/', views.predictions, name="predictions"),
+    path('output/', views.output, name="output"),
     # Login/Logout
     path('login/', include('django.contrib.auth.urls')),
 

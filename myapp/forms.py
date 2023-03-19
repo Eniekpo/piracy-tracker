@@ -22,7 +22,7 @@ class DataForm(forms.ModelForm):
     )
 
     branchCount = forms.CharField(
-        label='Branch Count', min_length=1, max_length=5,
+        label='Branch Count', min_length=1, max_length=3,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 1 Max: 30'})
     )
 

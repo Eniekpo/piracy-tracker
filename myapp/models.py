@@ -18,16 +18,16 @@ class Data(models.Model):
     license_key = models.CharField(max_length=50, blank=True)
     hashvalue = models.CharField(max_length=256, null=True)
     branchCount = models.FloatField(
-        validators=[MinValueValidator(-0.8), MaxValueValidator(2.5)], null=True)
+        validators=[MinValueValidator(1), MaxValueValidator(30)], null=True)
     predictions = models.CharField(
         max_length=50, blank=True, choices=PREDICTIONS, default='Status')
     tested_at = models.DateField(auto_now_add=True)
 
     # FUNCTION TO MAKE PREDICTIONS
     # def save(self, *args, **kwargs):
-    #     ml_model = joblib.load('ml_model/software_piracy_tracker.joblib')
+    #     ml_model = joblib.load('ml_model/piracy_tracker.joblib')
     #     self.predictions = ml_model.predict(
-    #         [[self.unique_Opnd, self.branchCount, self.total_Op, self.total_Opnd]])
+    #         [[self.branchCount]])
     #     return super().save(*args, **kwargs)
 
     # FUNCTION TO GENERATE HASH VALUE
@@ -52,7 +52,6 @@ class Predictions(models.Model):
     softwarename = models.CharField(max_length=50, null=True)
     licensekey = models.CharField(max_length=50, null=True)
     Hashvalue = models.CharField(max_length=50, null=True)
-
     branchCount = models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(30)], null=True)
     Predictions = models.CharField(max_length=50, blank=True)

@@ -56,18 +56,18 @@ class PredictionsForm(forms.ModelForm):
     )
 
     branchCount = forms.CharField(
-        label='Branch Key', min_length=2, max_length=5,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
+        label='Branch Key', min_length=1, max_length=2,
+        widget=forms.TextInput(attrs={'placeholder': 'MIN: 1 Max: 30'})
     )
 
     Hashvalue = forms.CharField(
-        label='Hash Value', min_length=2, max_length=5,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
+        label='Hash Value', min_length=2, max_length=10,
+        widget=forms.TextInput(attrs={'placeholder': 'KHYTGFRDEW'})
     )
 
     licensekey = forms.CharField(
-        label='License Key', min_length=2, max_length=5,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
+        label='License Key', min_length=5, max_length=23,
+        widget=forms.TextInput(attrs={'placeholder': 'XXXXX-XXXXX-XXXXX-XXXXX'})
     )
 
     class Meta:

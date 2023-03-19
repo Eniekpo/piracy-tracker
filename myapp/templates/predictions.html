@@ -28,13 +28,12 @@
           <form method="POST" class="border border-2 p-3">
             {% csrf_token %} {% comment %} {{ form|crispy}} {% endcomment %}
             <div class="row">
-              <div class="col-6">{{form.software_name|as_crispy_field}}</div>
-              <div class="col-6">{{form.total_Op|as_crispy_field}}</div>
+              <div class="col-6">{{form.softwarename|as_crispy_field}}</div>
+              <div class="col-6">{{form.licensekey|as_crispy_field}}</div>
             </div>
             <div class="row mt-2">
-              <div class="col-4">{{form.total_Opnd|as_crispy_field}}</div>
-              <div class="col-4">{{form.branchCount|as_crispy_field}}</div>
-              <div class="col-4">{{form.unique_Opnd|as_crispy_field}}</div>
+              <div class="col-6">{{Hashvalue|as_crispy_field}}</div>
+              <div class="col-6">{{form.branchCount|as_crispy_field}}</div>
             </div>
 
             <hr style="border: 1px solid blue; margin-top: -5px" />

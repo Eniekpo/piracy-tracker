@@ -49,7 +49,7 @@ class DataForm(forms.ModelForm):
 
 
 class PredictionsForm(forms.ModelForm):
-    software_name = forms.CharField(
+    softwarename = forms.CharField(
         label='Software Name', min_length=4, max_length=50,
         widget=forms.TextInput(
             attrs={'placeholder': 'Software Name'})
@@ -60,25 +60,19 @@ class PredictionsForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
     )
 
-    total_Op = forms.CharField(
+    Hashvalue = forms.CharField(
         label='Hash Value', min_length=2, max_length=5,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
     )
 
-    total_Opnd = forms.CharField(
+    licensekey = forms.CharField(
         label='License Key', min_length=2, max_length=5,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
-    )
-
-    unique_Opnd = forms.CharField(
-        label='Unique Opnd', min_length=2, max_length=5,
         widget=forms.TextInput(attrs={'placeholder': 'MIN: 0.1 Max: 2.5'})
     )
 
     class Meta:
         model = Predictions
-        fields = ['software_name','unique_Opnd', 'total_Op',
-                  'total_Opnd', 'branchCount', "Predictions"]
+        fields = ['softwarename','licensekey', 'Hashvalue', 'branchCount', "Predictions"]
 
     # SUPPER FUNCTION
     # def __init__(self, *args, **kwargs):

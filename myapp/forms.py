@@ -22,8 +22,8 @@ class DataForm(forms.ModelForm):
     )
 
     branchCount = forms.CharField(
-        label='Branch Count', min_length=2, max_length=5,
-        widget=forms.TextInput(attrs={'placeholder': 'MIN: -0.8 Max: 2.5'})
+        label='Branch Count', min_length=1, max_length=5,
+        widget=forms.TextInput(attrs={'placeholder': 'MIN: 1 Max: 30'})
     )
 
     hashvalue = forms.CharField(

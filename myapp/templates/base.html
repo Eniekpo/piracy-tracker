@@ -39,9 +39,9 @@
                 <!-- Button (Right side) -->
                 <div class="col-sm">
                     {% block nav-btn %}
-                    <a href="{% url 'login' %}" class="btn btn-sm text-light ml-auto" id="btn-nav">LOGIN</a>
-                    <a href="{% url 'backend' %}" class="btn btn-sm text-light" id="btn-nav">TESTS</a>
                     <a href="{% url 'result' %}" class="btn btn-sm text-light" id="btn-nav">DASHBOARD</a>
+                    <a href="{% url 'backend' %}" class="btn btn-sm text-light" id="btn-nav">TESTS</a>
+                    <a href="{% url 'login' %}" class="btn btn-sm text-light ml-auto" id="btn-nav">LOGIN</a>
                     {% endblock %}
                 </div>
             </nav>

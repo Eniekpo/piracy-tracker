@@ -15,8 +15,7 @@ class DataForm(forms.ModelForm):
     software_id = Uppercase(
         label='Software Id', min_length=4, max_length=50,
         # required=False,
-        validators=[RegexValidator(r'^[a-zA-ZA-y\s]*$',
-                                   message='Only letter is allowed !')],
+        validators=[RegexValidator(r'^[a-zA-ZA-y\s]*$',message='Only letter is allowed !')],
         widget=forms.TextInput(
             attrs={'placeholder': 'Software Id'})
     )

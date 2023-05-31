@@ -15,7 +15,8 @@ class DataForm(forms.ModelForm):
     software_id = Uppercase(
         label='Software Id', min_length=4, max_length=50,
         # required=False,
-        validators=[RegexValidator(r'^[a-zA-ZA-y\s]*$',message='Only letter is allowed !')],
+        validators=[RegexValidator(
+            r'^[a-zA-ZA-y\s]*$', message='Only letter is allowed !')],
         widget=forms.TextInput(
             attrs={'placeholder': 'Software Id'})
     )
@@ -51,7 +52,7 @@ class PredictionsForm(forms.ModelForm):
     softwarename = forms.CharField(
         label='Software Name', min_length=4, max_length=50,
         widget=forms.TextInput(
-            attrs={'placeholder': 'Software Name'})
+            attrs={'placeholder': 'Enter Software Name'})
     )
 
     branchCount = forms.CharField(
@@ -66,12 +67,14 @@ class PredictionsForm(forms.ModelForm):
 
     licensekey = forms.CharField(
         label='License Key', min_length=5, max_length=23,
-        widget=forms.TextInput(attrs={'placeholder': 'XXXXX-XXXXX-XXXXX-XXXXX'})
+        widget=forms.TextInput(
+            attrs={'placeholder': 'XXXXX-XXXXX-XXXXX-XXXXX'})
     )
 
     class Meta:
         model = Predictions
-        fields = ['softwarename','licensekey', 'Hashvalue', 'branchCount', "Predictions"]
+        fields = ['softwarename', 'licensekey',
+                  'Hashvalue', 'branchCount', "Predictions"]
 
     # SUPPER FUNCTION
     # def __init__(self, *args, **kwargs):

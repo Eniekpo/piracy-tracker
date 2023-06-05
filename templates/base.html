@@ -30,7 +30,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <!-- FontAwesome + Title (Left side) -->
                 <div class="col-sm">
-                    <a href="{% url 'frontend' %}" class="navbar-brand flex-grow-1 text-center text-light" style="margin-left: 25px;">
+                    <a href="{% url 'index' %}" class="navbar-brand flex-grow-1 text-center text-light" style="margin-left: 25px;">
                         {% block nav-content %}
                         <i class="fa-solid fa-graduation-cap"></i>&nbsp;&nbsp; AMABIE PIRACY TRACKER
                         {% endblock %}
@@ -39,9 +39,11 @@
                 <!-- Button (Right side) -->
                 <div class="col-sm">
                     {% block nav-btn %}
-                    <a href="{% url 'result' %}" class="btn btn-sm text-light" id="btn-nav">DASHBOARD</a>
-                    <a href="{% url 'backend' %}" class="btn btn-sm text-light" id="btn-nav">TESTS</a>
-                    <a href="{% url 'login' %}" class="btn btn-sm text-light ml-auto" id="btn-nav">LOGIN</a>
+                    <a href="{% url 'register' %}" class="btn btn-sm text-light" id="btn-nav">REGISTER</a>
+                    <a href="{% url 'index' %}" class="btn btn-sm text-light" id="btn-nav">DASHBOARD</a>
+                    <a href="{% url 'index' %}" class="btn btn-sm text-light" id="btn-nav">TESTS</a>
+                    <a href="{% url 'index' %}" class="btn btn-sm text-light" id="btn-nav">RESULTS</a>
+                    <a href="{% url 'index' %}" class="btn btn-sm text-light ml-auto" id="btn-nav">LOGIN</a>
                     {% endblock %}
                 </div>
             </nav>

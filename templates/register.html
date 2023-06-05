@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Block title -->
+{% block title %} USER REGISTRATION {% endblock %}
+
+<!-- Page content -->
+{% block content %}
+ <div class='container mt-4'>
+    {% for message in messages %}
+    <h3 class="text-success">{{message}}</h3>
+    {% endfor %}
+</div>
+<div class="container">
+  <div class="row mt-4">
+      <div class="card shadow">
+        <div class="card-body">
+            <form action="register" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6 py-3">
+                    <input type="text" name="first_name" placeholder="First Name">
+                    <input type="text" name="last_name" placeholder="Last Name"> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 py-3">
+                     <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 py-3">
+                     <input type="password" name="password1" placeholder="Password">
+                     <input type="password" name="password2" placeholder="Confirm Password">
+                </div>
+            </div>
+            <input type="submit" value="Register"/>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

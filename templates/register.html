@@ -13,32 +13,25 @@
 </div>
 <div class="container">
   <div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
       <div class="card shadow">
         <div class="card-body">
-            <form action="register" method="post">
+            <form action="register" method="post" class="py-3">
             {% csrf_token %}
-            <div class="row">
-                <div class="col-6 py-3">
-                    <input type="text" name="first_name" placeholder="First Name">
-                    <input type="text" name="last_name" placeholder="Last Name"> 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 py-3">
-                     <input type="text" name="username" placeholder="Username">
-                    <input type="text" name="email" placeholder="Email">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 py-3">
-                     <input type="password" name="password1" placeholder="Password">
-                     <input type="password" name="password2" placeholder="Confirm Password">
-                </div>
-            </div>
-            <input type="submit" value="Register"/>
+          
+            <input type="text" class="form-control mb-3" name="first_name" placeholder="First Name">
+            <input type="text" class="form-control mb-3" name="last_name" placeholder="Last Name">
+            <input type="text" class="form-control mb-3" name="username" placeholder="Username">
+            <input type="text" class="form-control mb-3" name="email" placeholder="Email">
+            <input type="password" class="form-control mb-3" name="password1" placeholder="Password">
+            <input type="password" class="form-control mb-4" name="password2" placeholder="Confirm Password">
+
+            <input type="submit" class="form-control btn btn-primary" value="Register"/>
+
             </form>
         </div>
       </div>
+    </div>
     </div>
 </div>
 {% endblock content %}

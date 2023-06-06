@@ -6,33 +6,41 @@
 <!-- Page content -->
 {% block content %}
 <div class="container">
-    
-  <form class="row g-3">
+
+  <form class="row g-3" action="register" method="post">
+    {% csrf_token %}
+
     <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" />
+      <label for="FirstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" />
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" />
+      <label for="LastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+      <label for="Username" class="form-label">Username</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+      <label for="Email" class="form-label">Email</label>
+      <input type="email" class="form-control" />
+    </div>
+    <div class="col-md-6">
+      <label for="Password" class="form-label">Password</label>
+      <input type="password" class="form-control" />
+    </div>
+    <div class="col-md-6">
+      <label for="Password" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" />
     </div>
     <div class="col-12">
       <label for="inputAddress" class="form-label">Address</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputAddress"
-        placeholder="1234 Main St"
-      />
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
     </div>
     <div class="col-12">
       <label for="inputAddress2" class="form-label">Address 2</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputAddress2"
-        placeholder="Apartment, studio, or floor"
-      />
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
     </div>
     <div class="col-md-6">
       <label for="inputCity" class="form-label">City</label>
@@ -42,7 +50,9 @@
       <label for="inputState" class="form-label">State</label>
       <select id="inputState" class="form-select">
         <option selected>Choose...</option>
-        <option>...</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Unknown</option>
       </select>
     </div>
     <div class="col-md-2">

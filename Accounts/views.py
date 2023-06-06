@@ -26,7 +26,7 @@ def register(request):
                     first_name=first_name, last_name=last_name, username=username, password=password1, email=email)
                 user.save()
                 messages.info(request, 'User Created Successfully')
-                return redirect('register')
+                return redirect('login')
 
         else:
             messages.info(request, 'Password Not Matching .. ')
@@ -36,4 +36,22 @@ def register(request):
         return render(request, 'register.html')
     
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect("/")
+        else:
+            messages.info(request, 'Login Failed, Invalid Cridentials')
+            return redirect('login')
+
+    else:
+        return render(request, 'login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect("/")

@@ -31,7 +31,7 @@ def breg(request):
             return redirect('breg')
 
     else:
-        return render(request, 'buyer.html')
+        return render(request, 'breg.html')
 
 
 def vreg(request):
@@ -60,7 +60,7 @@ def vreg(request):
             return redirect('vreg')
 
     else:
-        return render(request, 'vendor.html')
+        return render(request, 'vreg.html')
 
 
 def login(request):

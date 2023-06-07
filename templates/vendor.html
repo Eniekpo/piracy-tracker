@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 <!-- Block title -->
-{% block title %} HOME PAGE{% endblock %}
+{% block title %} VENDOR PAGE{% endblock %}
 
 <!-- Page content -->
 {% block content %}
@@ -14,10 +14,13 @@
     <div class="col-md-12">
       <div class="card shadow">
         <div class="card-body">
-            <form method="post" class="p-3 mt-3" autcomplete="off">
-                {% csrf_token %}
-                {{form}}
-            </form>
+          <h2>The Vendor Page</h2>
+          <form method="post" class="p-3 mt-3" autcomplete="off">
+            {% csrf_token %} 
+            
+            {{form}}
+            
+          </form>
         </div>
       </div>
     </div>

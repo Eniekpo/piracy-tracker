@@ -1,53 +1,51 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <!-- Block title -->
-{% block title %} USER REGISTRATION {% endblock %}
+{% block title %} VENDOR REGISTRATION {% endblock %}
 
 <!-- Page content -->
 {% block content %}
-<div class='container mt-4'>
-    {% for message in messages %}
-    <h3 class="text-success">{{message}}</h3>
-    {% endfor %}
+<div class="container mt-4">
+  {% for message in messages %}
+  <h3 class="text-success">{{message}}</h3>
+  {% endfor %}
 </div>
 <div class="container">
   <div class="row mt-4">
-      <div class="col-md-8 offset-md-2">
-          <h2 class="mb-4">Vendor Registration Form</h2>
-          <div class="card shadow">
-              <div class="card-body">
-    
-<form class="row g-3" action="vreg" method="post">
-    {% csrf_token %}
-    
-    <div class="col-md-6">
-      <label for="Email" class="form-label">Email</label>
-      <input type="email" name="email" class="form-control" />
-    </div>
-          
-    <div class="col-md-6">
-      <label for="Username" class="form-label">Username</label>
-      <input type="text" name="username" class="form-control" />
-    </div>
+    <div class="col-md-8 offset-md-2">
+      <h2 class="mb-4">Vendor Registration Form</h2>
+      <div class="card shadow">
+        <div class="card-body">
+          <form class="row g-3" action="vreg" method="post">
+            {% csrf_token %}
 
-    <div class="col-md-6">
-      <label for="Password" class="form-label">Password</label>
-      <input type="password" name="password1" class="form-control" />
-    </div>
+            <div class="col-md-6">
+              <label for="Email" class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" />
+            </div>
 
-    <div class="col-md-6">
-      <label for="Password" class="form-label">Confirm Password</label>
-      <input type="password" name="password2" class="form-control" />
-    </div>
+            <div class="col-md-6">
+              <label for="Username" class="form-label">Username</label>
+              <input type="text" name="username" class="form-control" />
+            </div>
 
-     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Register</button>
-    </div>
-</form>
+            <div class="col-md-6">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" name="password1" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label for="Password" class="form-label">Confirm Password</label>
+              <input type="password" name="password2" class="form-control" />
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </div>
 {% endblock content %}

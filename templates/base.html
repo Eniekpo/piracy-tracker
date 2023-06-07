@@ -41,14 +41,12 @@
                     {% block nav-btn %}
 
                     {% if user.is_authenticated %}
-                    <li>Hello, {{user.first_name}}</li>
                     <a href="{% url 'logout' %}" class="btn btn-sm text-light ml-auto" id="btn-nav">LOGOUT</a>
 
                     {% else %}
 
-                    <a href="{% url 'register' %}" class="btn btn-sm text-light" id="btn-nav">REGISTER</a>
-                    <a href="{% url 'index' %}" class="btn btn-sm text-light" id="btn-nav">TESTS</a>
-                    <a href="{% url 'index' %}" class="btn btn-sm text-light" id="btn-nav">RESULTS</a>
+                    <a href="{% url 'vreg' %}" class="btn btn-sm text-light" id="btn-nav">VENDOR</a>
+                    <a href="{% url 'breg' %}" class="btn btn-sm text-light" id="btn-nav">BUYER</a>
                     <a href="{% url 'login' %}" class="btn btn-sm text-light ml-auto" id="btn-nav">LOGIN</a>
 
                     {% endif %}

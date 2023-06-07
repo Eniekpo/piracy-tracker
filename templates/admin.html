@@ -7,9 +7,8 @@
 {% block content %}
 <div class="container">
   <div class="row g-3 mt-4">
-
     {% if user.is_authenticated %}
-        <h2>Hello, {{user.username}}</h2>
+    <h2>Hello, {{user.username}}</h2>
     {% endif%}
 
     <div class="col-md-4">
@@ -17,20 +16,18 @@
         <div class="card-body">SOFTWARE MANUFACTURER</div>
       </div>
     </div>
- 
+
     <div class="col-md-4">
       <div class="card shadow">
         <div class="card-body">SOFTWARE VENDOR</div>
       </div>
     </div>
- 
+
     <div class="col-md-4">
       <div class="card shadow">
         <div class="card-body">THE END USER</div>
       </div>
     </div>
- 
- 
   </div>
 </div>
 {% endblock content %}
